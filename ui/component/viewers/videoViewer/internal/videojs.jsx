@@ -99,7 +99,14 @@ export default React.memo<Props>(function VideoJs(props: Props) {
     ],
     autoplay: false,
     poster: poster, // thumb looks bad in app, and if autoplay, flashing poster is annoying
-    plugins: { eventTracking: true },
+    plugins: {
+      eventTracking: true,
+      vastClient: {
+        adTagUrl: 'https://serve.adspruce.com/vpaid-8394-3.xml',
+        adsCancelTimeout: 5000,
+        adsEnabled: true,
+      },
+    },
   };
 
   if (adsTest) {
@@ -111,7 +118,6 @@ export default React.memo<Props>(function VideoJs(props: Props) {
       },
     ];
 
-    // $FlowFixMe
     videoJsOptions.plugins.vastClient = {
       adTagUrl: 'https://serve.adspruce.com/vpaid-8394-3.xml',
       adsCancelTimeout: 5000,
