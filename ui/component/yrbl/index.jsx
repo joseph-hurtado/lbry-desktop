@@ -11,7 +11,7 @@ type Props = {
   className?: string,
   actions?: Node,
   alwaysShow?: boolean,
-  small: boolean,
+  small?: boolean,
 };
 
 const yrblTypes = {

@@ -11,6 +11,7 @@ import { useHistory } from 'react-router';
 import LbcSymbol from 'component/common/lbc-symbol';
 import { DOMAIN } from 'config';
 import Yrbl from 'component/yrbl';
+import ClaimRepostAuthor from 'component/claimRepostAuthor';
 
 type Props = {
   query: string,
@@ -85,10 +86,12 @@ export default function SearchTopClaim(props: Props) {
             <ClaimPreview
               hideRepostLabel
               uri={winningUri}
+              noRepost
+              showNullPlaceholder
               type="large"
-              placeholder="publish"
               properties={claim => (
                 <span className="claim-preview__custom-properties">
+                  <ClaimRepostAuthor short uri={winningUri} />
                   <ClaimEffectiveAmount uri={winningUri} />
                 </span>
               )}
